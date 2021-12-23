@@ -1,4 +1,5 @@
 import requests
+import werecycle
 
 # bot configuration
 telegram_URL = "https://api.telegram.org/"
@@ -8,15 +9,22 @@ chat_id = "930376906"
 # API
 sendMessageCommand = "/sendMessage"
 
-def send_message(dest_id, message):
+def send_message(message):
     req = telegram_URL + bot_Token + sendMessageCommand
-    content = {'chat_id': dest_id, 'text': message}
+    content = {'chat_id': chat_id, 'text': message}
     r = requests.get(url = req, params = content)
 
+def intro():
+    send_message("Hello everyone !")
+
+def recycle_message():
+    message = werecycle.getNextFormatedWeRecycleDayOfWeek()
+    send_message(message)
+
 def main() -> int:
-    # Example
-    send_message(chat_id, "hello world")
-    print("done")
+    # We recycle
+    intro()
+    recycle_message()
 
 if __name__ == '__main__':
     main()
