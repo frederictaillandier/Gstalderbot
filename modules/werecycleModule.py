@@ -12,11 +12,11 @@ werecycle_dates = {
 
 def getNextWeRecycle():
     today = datetime.datetime.today()
-    best = datetime.datetime(2050,1,1)
+    best = today + datetime.timedelta(days=365)
     for date in werecycle_dates:
         if date > today and date < best:
             best = date
-    if best == datetime.datetime(2050,1,1):
+    if best == (today + datetime.timedelta(days=365)):
         return None
     return best
 
@@ -26,5 +26,5 @@ def getWeRecycleMessage():
     if next_pick == None:
         return "I don't know when is the next We-Recycle pick-up. :("
     if next_pick > next_week:
-        return "No We-Recycle pick-up this week.\nIt will be on the {0} of {1}.".format(str(next_pick.day), calendar.month_name[next_pick.month])
+        return "No We-Recycle pick-up this week, it will be on the {0} of {1}.".format(str(next_pick.day), calendar.month_name[next_pick.month])
     return "Next We-Recycle pick-up is: {0} morning.".format(calendar.day_name[next_pick.weekday()])
