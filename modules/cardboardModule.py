@@ -18,23 +18,19 @@ cardboard_dates = {
 
 def getNextCarboardPickup():
     today = datetime.datetime.today()
-    best = datetime.datetime(2050,1,1)
+    best = today + datetime.timedelta(days=365)
     for date in cardboard_dates:
         if date > today and date < best:
             best = date
-    if best == datetime.datetime(2050,1,1):
+    if best == (today + datetime.timedelta(days=365)):
         return None
     return best
 
-def getNextFormatedCarboardDayOfWeek():
+def getCardBoardMessage():
     next_week = datetime.datetime.today() + datetime.timedelta(days=7)
     next_pick = getNextCarboardPickup()
-    message = ""
     if next_pick == None:
-        message =  message + "I don't know when is the next Cardboard pick-up. :("
-        return message
-    if next_pick > next_week:
-        message = None
+        return "I don't know when is the next Cardboard pick-up. :("
     if next_pick < next_week:
-        message +=  "Next Cardboard pick-up is: " + calendar.day_name[next_pick.weekday()] + " morning."
-    return message
+        return  "Next Cardboard pick-up is: {0} morning.".format(calendar.day_name[next_pick.weekday()])
+    return None

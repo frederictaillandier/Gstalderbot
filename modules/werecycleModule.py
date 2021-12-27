@@ -20,15 +20,11 @@ def getNextWeRecycle():
         return None
     return best
 
-def getNextFormatedWeRecycleDayOfWeek():
+def getWeRecycleMessage():
     next_week = datetime.datetime.today() + datetime.timedelta(days=7)
     next_pick = getNextWeRecycle()
-    message = ""
     if next_pick == None:
-        message =  message + "I don't know when is the next We-Recycle pick-up. :("
-        return message
+        return "I don't know when is the next We-Recycle pick-up. :("
     if next_pick > next_week:
-        message += "No We-Recycle pick-up this week.\nIt will be on the " + str(next_pick.day) + " of " + calendar.month_name[next_pick.month] + "."
-    else:
-        message +=  "Next We-Recycle pick-up is: " + calendar.day_name[next_pick.weekday()] + " morning."
-    return message
+        return "No We-Recycle pick-up this week.\nIt will be on the {0} of {1}.".format(str(next_pick.day), calendar.month_name[next_pick.month])
+    return "Next We-Recycle pick-up is: {0} morning.".format(calendar.day_name[next_pick.weekday()])
