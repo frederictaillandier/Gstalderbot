@@ -9,8 +9,7 @@ calls = [
     foodmasterModule.getFoodMasterMessage,
     werecycleModule.getWeRecycleMessage,
     cardboardModule.getCardBoardMessage,
-    rentModule.getRentReminderMessage,
-    flatteryModule.getFlatteryMessage
+    rentModule.getRentReminderMessage
     ]
 
 def main() -> int:
