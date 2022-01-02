@@ -1,7 +1,7 @@
 import datetime
 import config.flatmatesConfig as flatmatesConfig
 
-weeks_calendar_delta = 5
+weeks_calendar_delta = 4
 
 def getFoodMasterMessage():
     tomorrow = datetime.datetime.today() + datetime.timedelta(days=1)
