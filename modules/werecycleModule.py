@@ -2,12 +2,11 @@ import datetime
 import calendar
 
 werecycle_dates = {
-    datetime.datetime(2022, 1, 18),
-    datetime.datetime(2022, 1, 27),
-    datetime.datetime(2022, 2, 8),
-    datetime.datetime(2022, 2, 23),
-    datetime.datetime(2022, 3, 11),
-    datetime.datetime(2022, 3, 28),
+    datetime.datetime(2022, 4, 26),
+    datetime.datetime(2022, 5, 10),
+    datetime.datetime(2022, 5, 25),
+    datetime.datetime(2022, 6, 19),
+    datetime.datetime(2022, 6, 27),
 }
 
 def getNextWeRecycle():
